@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.optimal.kdm.module.manage.starter.OptimalManageAutoConfiguration
