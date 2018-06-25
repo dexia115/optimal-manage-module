@@ -77,10 +77,10 @@ public class OptimalManageAutoConfiguration {
 		return docket;
 	}
 	
-//	@Autowired
-//	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
-//	}
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
+	}
 	
 	@Configuration
 	@Order(1)
@@ -101,10 +101,10 @@ public class OptimalManageAutoConfiguration {
 	@Order(2)
 	public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
-		@Override
-		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-			auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
-		}
+//		@Override
+//		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//			auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
+//		}
 
 		@Override
 		public void configure(WebSecurity web) throws Exception {
