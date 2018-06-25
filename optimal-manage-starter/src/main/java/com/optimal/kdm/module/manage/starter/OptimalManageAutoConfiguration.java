@@ -83,21 +83,22 @@ public class OptimalManageAutoConfiguration {
 //	}
 	
 	@Configuration
-	@Order(2)
+	@Order(1)
 	public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
-		@Override
-		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-			auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
-		}
 		
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
-			http.csrf().disable().authorizeRequests().antMatchers(prefixCloudApi + "/**").permitAll().anyRequest().authenticated();
+			http.csrf().disable().antMatcher(prefixCloudApi + "/**").authorizeRequests().antMatchers(prefixCloudApi + "/inner/**").permitAll().anyRequest().authenticated();
 		}
 	}
 
+	/**
+	 * 如果这个URL不是以/prefixCloudApi/开头将被使用,这个配置在ApiSecurityConfig之后被调用
+	 * @author liuxiaodong
+	 *
+	 */
 	@Configuration
-	@Order(1)
+	@Order(2)
 	public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		@Override

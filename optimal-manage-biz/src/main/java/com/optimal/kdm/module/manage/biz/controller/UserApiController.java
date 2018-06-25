@@ -13,7 +13,7 @@ import com.optimal.kdm.module.manage.biz.entity.account.User;
 import com.optimal.kdm.module.manage.biz.service.AccountService;
 
 @RestController
-@RequestMapping("${optimal.module.manage.prefix-cloud-api}/user")
+@RequestMapping("${optimal.module.manage.prefix-cloud-api}/inner/user")
 public class UserApiController implements UserApi{
 	
 	@Autowired
